@@ -15,14 +15,15 @@ ActiveRecord::Schema.define(version: 20200504172035) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "image_url"
+    t.string   "email"
     t.string   "password_digest"
+    t.string   "image_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   create_table "wines", force: :cascade do |t|
-    t.string   "type"
+    t.string   "w_type"
     t.integer  "quantity"
     t.string   "vintage"
     t.text     "varietal"
