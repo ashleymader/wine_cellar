@@ -3,7 +3,7 @@ class CreateUserWines < ActiveRecord::Migration
     create_table :user_wines do |t|
       t.integer :user_id
       t.integer :wine_id
-      t.string :notes
+      t.text :notes
 
       t.timestamps null: false
     end
