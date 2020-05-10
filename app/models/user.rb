@@ -1,7 +1,6 @@
-class User <ActiveRecord::Base
+class User < ActiveRecord::Base
     has_secure_password
 
-    has_many :wines, through: :cellars
-    has_many :cellars 
-
+    has_many :wines, through: :userwines 
+    has_many :userwines
 end

@@ -6,8 +6,12 @@ ashley = User.create(name: "Ashley", email: "ashley@ashley.com", password: "pw",
 
 nick = User.create(name: "Nick", email: "nick@nick.com", password: "pw", image_url: "https://images.app.goo.gl/SDiSi6iKe5yoiU4q7") 
 
-Wine.create(w_type: "Red", quantity: 4, vintage: "2013", varietal: "Cabernet Sauvignon", producer: "14 Hands", user_id: ashley.id )
+UserWine.create(user_id: nick.id, wine_id: wine1, notes: "this wine is terrible")
+UserWine.create(user_id: nick.id, wine_id: wine2, notes: "the best, ever!")
+UserWine.create(user_id: ashley.id, wine_id: wine3, notes: "I really just like any dry red wine so it doesn't matter")
 
-Wine.create(w_type: "White", quantity: 2, vintage: "2016", varietal: "Sauvignon Blanc", producer: "Beringer Vineyards", user_id: nick.id )
+wine1 = Wine.create(w_type: "Red", vintage: "2013", varietal: "Cabernet Sauvignon", producer: "14 Hands")
 
-Wine.create(w_type: "Red", quantity: 1, vintage: "2003", varietal: "Chianti", producer: "Colle Bereto", user_id: nick.id )
+wine2 = Wine.create(w_type: "White", vintage: "2016", varietal: "Sauvignon Blanc", producer: "Beringer Vineyards")
+
+wine3 = Wine.create(w_type: "Red", vintage: "2003", varietal: "Chianti", producer: "Colle Bereto")
