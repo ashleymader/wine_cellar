@@ -1,5 +1,6 @@
 require './config/environment'
 
+
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -9,10 +10,17 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     #set a secret session for security. Always name it something not obvious
     set :session_secret, "i_feel_so_smart_right_now"
+
   end
 
   get "/" do
     erb :welcome
   end
 
+  helpers do 
+    #keeps track of logged in user
+    def current_user 
+      User.find_by(:id session[:user_id])
+    end
+  end
 end
