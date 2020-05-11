@@ -1,0 +1,6 @@
+<h2>All Wines</h2>
+
+<% @wines.each.with_index(1) do |wine| %>
+      <p><a href="/wines/<%= wine.id %>"><%= wine.varietal %> by <%= wine.producer %> </a></p>
+
+  <% end %>
