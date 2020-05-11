@@ -18,14 +18,32 @@ class UsersController <ApplicationController
             redirect "/users/#{user.id}"
         else  
         #redirect to login or register 
-            # flash[:error] = "Oops! Looks like you entered something wrong."
+            # flash[:error] = "Username or password is incorrect. Please try again."
             redirect "/login"
         end
     end
 
     get '/users/:id' do 
-        # user = User.find_by_id(params[:id])
-        "show user page"
+        @user = User.find_by_id(params[:id])
+        erb :"users/show"
+    end
+
+    get '/signup' do
+        erb :"users/signup"
+    end
+    
+    post '/users' do 
+        #takes in params defined in the form and makes a new user
+        @user = User.create(params)
+        #just like with sign in we need to set a session k/v pair to follow user through the site. 
+        session[:user_id] = @user.id
+        #now we rediect the user to their profile page 
+        redirect "/users/#{@user.id}"
+    end
+
+    get '/logout' do 
+        session.clear 
+        redirect '/'
     end
     
 end
