@@ -14,12 +14,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    if logged_in? 
+      redirect "/users/#{current_user.id}"
+    else
+      erb :welcome
+    end
   end
   
   helpers do
 
-    #boolean for if user is logged in 
+    #boolean for if user is logged in. Hard truthy or falsey value 
     def logged_in?
       !!current_user
     end
