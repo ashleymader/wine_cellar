@@ -2,8 +2,8 @@
 require 'database_cleaner'
 
 DatabaseCleaner.clean_with(:truncation)
-ashley = User.create(name: "Ashley", email: "ashley@ashley.com", password: "pw", image_url: "https://images.app.goo.gl/zrPRXKw3nQEiyQeW7")
-nick = User.create(name: "Nick", email: "nick@nick.com", password: "pw", image_url: "https://images.app.goo.gl/SDiSi6iKe5yoiU4q7") 
+ashley = User.create(name: "Ashley", email: "ashley@ashley.com", password: "pw", image_url: "https://pixabay.com/images/id-4520513/")
+nick = User.create(name: "Nick", email: "nick@nick.com", password: "pw", image_url: "https://pixabay.com/images/id-1652455/") 
 
 wine1 = Wine.create(w_type: "Red", vintage: "2013", varietal: "Cabernet Sauvignon", producer: "14 Hands")
 wine2 = Wine.create(w_type: "White", vintage: "2016", varietal: "Sauvignon Blanc", producer: "Beringer Vineyards")
