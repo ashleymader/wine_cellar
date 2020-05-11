@@ -16,11 +16,23 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
+  
+  helpers do
 
-  helpers do 
-    #keeps track of logged in user
-    def current_user 
-      User.find_by(:id session[:user_id])
+    #boolean for if user is logged in 
+    def logged_in?
+      !!current_user
     end
+
+    # tracks use across site 
+    def current_user
+      User.find_by(id: session[:user_id])
+    end
+
+    # create an authorization helper for edit/delete
+    def authorized_to_edit?(userwine)
+      userwine.user_id == current_user.id
+    end
+
   end
 end
