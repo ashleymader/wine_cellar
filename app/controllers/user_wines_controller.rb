@@ -10,16 +10,17 @@ class UserWinesController <ApplicationController
 
     get '/user_wines/new' do 
         @wines = Wine.all
+        @notes = UserWine.notes
         erb :"user_wines/new"
     end
 
-    get '/user_wines/:id' do 
-        @wines = UserWine.find_by_id(params[:user_id])
-        erb :"/user_wines/show"
+    get '/wines/:id' do 
+        @wines = Wine.find(params[:id])
+        erb :"/wines/show"
     end
 
     post '/user_wines' do 
         new_wine = UserWine.create(wine_id: params[:wine][:wine_id], user_id: current_user.id)
-        binding.pry
+        redirect "/user_wines"
     end
 end
