@@ -1,6 +1,6 @@
-<h2>All Wines</h2>
+<h2>All Wines in Your Cellar</h2>
 
-<% @wines.each.with_index(1) do |wine| %>
-      <p><a href="/wines/<%= wine.id %>"><%= wine.varietal %> by <%= wine.producer %> </a></p>
+<% @wines.each do |wine| %>
+<p><a href="/wines/<%= wine.id %>"><%= wine.vintage %> <%= wine.varietal %>,  <%= wine.producer %> </a></p>
 
   <% end %>
