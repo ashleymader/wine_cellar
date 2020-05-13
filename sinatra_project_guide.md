@@ -59,15 +59,15 @@ MOVE ON TO SIGN UP
  [x]14. Build your get logout route
 
 PART 3 — CRUD: Create, Read, Update, Delete
- []15. Create your PostsController
+ [x]15. Create your PostsController (userwine)
 
 Mount new controller in config.ru with use PostsController
 Ask: Why do we add this? ^
- []16. Implement READ functionality
+ [x]16. Implement READ functionality
 
 Create get posts route
 Create a view for displaying all posts
- []17. Implement CREATE functionality
+ [x]17. Implement CREATE functionality
 
 Create get posts route and view to render form
 Create post route to create new post
