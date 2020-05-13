@@ -23,10 +23,12 @@ class UsersController <ApplicationController
         end
     end
 
+    #finding by id, sending to show page
     get '/users/:id' do 
         @user = User.find_by_id(params[:id])
         erb :"users/show"
     end
+
 
     get '/signup' do
         erb :"users/signup"
