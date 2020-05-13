@@ -7,6 +7,6 @@ end
 
 #here is where I will mount other controllers with the keyword 'use'
 use UsersController
-use WinesController
+use UserWinesController
 #need rack::methodoverride to send patch and delete requests
 run ApplicationController

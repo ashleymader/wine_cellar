@@ -1,0 +1,14 @@
+<h2>Add a New Wine to Your Cellar</h2>
+
+<!-- add content here -->
+<form action="/user_wines" method="POST">
+<select name="wine[wine_id]" >
+<%@wines.each do |wine|%>
+<option name="wine[wine_id]" value="<%=wine.id%>"><%=wine.producer%></option>
+<%end%>
+</select>
+  <input type="submit" value="Add Wine to Cellar!">
+</form>
+
+
+
