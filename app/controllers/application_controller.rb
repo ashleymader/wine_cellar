@@ -31,6 +31,7 @@ class ApplicationController < Sinatra::Base
     # tracks use across site 
     def current_user
       User.find_by(id: session[:user_id])
+      #@user ||= User.find_by(id: session[:user_id])     LIMITS CALLS TO DB? 
     end
 
     # create an authorization helper for edit/delete

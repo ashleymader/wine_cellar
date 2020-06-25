@@ -8,8 +8,6 @@ class WinesController <ApplicationController
 
     get '/wines/:id' do 
         @wine = Wine.find(params[:id])
-        # @note = UserWine.find(params[:id], params[:notes])
-        # binding.pry
         erb :"/wines/show"
     end
 

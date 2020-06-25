@@ -15,11 +15,11 @@ class UserWinesController <ApplicationController
     end
 
     post '/user_wines' do 
-        new_wine = UserWine.create(wine_id: params[:wine][:wine_id], user_id: current_user.id)
+        new_wine = UserWine.create(wine_id: params[:wine][:wine_id], user_id: current_user.id, notes: params[:userwine][:notes])
         redirect "/user_wines"
     end
 
-    get '/user_wines/edit' do
+    
 
 
 end
