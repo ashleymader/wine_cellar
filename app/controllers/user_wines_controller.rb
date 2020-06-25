@@ -1,6 +1,7 @@
 class UserWinesController <ApplicationController 
 
     #create
+      
 
     #read 
     get '/user_wines' do
@@ -10,7 +11,6 @@ class UserWinesController <ApplicationController
 
     get '/user_wines/new' do 
         @wines = Wine.all
-        # @notes = UserWine.notes
         erb :"user_wines/new"
     end
 
@@ -19,5 +19,7 @@ class UserWinesController <ApplicationController
         redirect "/user_wines"
     end
 
-    
+    get '/user_wines/edit' do
+
+
 end
