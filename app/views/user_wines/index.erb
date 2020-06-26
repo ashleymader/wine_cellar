@@ -1,8 +1,9 @@
 <h2>All Wines in Your Cellar</h2>
 
-<% @wines.each do |wine| %>
-<p><a href="/wines/<%= wine.id %>"><%= wine.vintage %> <%= wine.varietal %>,  <%= wine.producer %> </a></p> 
+<% @uw.each do |uw| %>
+<h4><%= uw.wine.vintage %> <%= uw.wine.varietal %>,  <%= uw.wine.producer %> </h4> 
+<p><%="Notes: #{uw.notes}" if uw.notes %></p>
 
 
-  <% end %>
+    <% end %>
 

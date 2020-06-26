@@ -5,7 +5,7 @@ class UserWinesController <ApplicationController
 
     #read 
     get '/user_wines' do
-        @wines = current_user.wines
+        @uw = current_user.user_wines
         erb :"/user_wines/index"
     end
 
@@ -15,11 +15,14 @@ class UserWinesController <ApplicationController
     end
 
     post '/user_wines' do 
-        new_wine = UserWine.create(wine_id: params[:wine][:wine_id], user_id: current_user.id, notes: params[:userwine][:notes])
+        new_wine = UserWine.create(wine_id: params[:wine][:wine_id], user_id: current_user.id, notes: params[:user_wine][:notes])
+        @uw = current_user.user_wines
+        
         redirect "/user_wines"
     end
 
     
+
 
 
 end
