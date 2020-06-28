@@ -22,13 +22,16 @@ class UserWinesController <ApplicationController
     end
 
     get '/user_wines/edit' do 
-        @uw = current_user.user_wines
+        # @uw = current_user.user_wines
+        @uw = UserWine.where({user_id: "#{current_user.id}"})
         erb :"user_wines/edit"
+        # binding.pry
     end
 
     patch '/user_wines' do 
-        @uw = current_user.user_wines 
-        
+        @uw = UserWine.where({user_id: "#{current_user.id}"})
+        @uw.update (notes: params[:notes])
+        redirect '/user_wines'
     end
 
 
