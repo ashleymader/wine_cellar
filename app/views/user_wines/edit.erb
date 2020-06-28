@@ -1,14 +1,14 @@
 <h2>Edit Wine in Your Cellar</h2>
 
-<!-- add content here -->
 <form action="/user_wines" method="POST">
-<select name="wine[wine_id]" >
-<%@wines.each do |wine|%>
-<option name="wine[wine_id]" value="<%=wine.id%>"><%=wine.vintage%>, <%=wine.producer%>, <%=wine.varietal%></option>
+<input type="hidden" name="hidden" value="patch">
+<input name="user_wine" >
+<%@uw.each do |uw|%>
+<p> <%=uw.wine.vintage%>, <%=uw.wine.producer%>, <%=uw.wine.varietal%> " 
+<input type="textarea" value="<%=uw.notes%>" name="user_wine[notes]">
 <%end%>
-</select>
-<input type="textbox" placeholder="Notes:" name="user_wine[notes]">
-  <input type="submit" value="Add Wine to Cellar!">
+</p>
+  <input type="submit" value="Edit Cellar!">
 </form>
 
 

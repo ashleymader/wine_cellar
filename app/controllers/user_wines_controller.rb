@@ -21,7 +21,15 @@ class UserWinesController <ApplicationController
         redirect "/user_wines"
     end
 
-    
+    get '/user_wines/edit' do 
+        @uw = current_user.user_wines
+        erb :"user_wines/edit"
+    end
+
+    patch '/user_wines' do 
+        @uw = current_user.user_wines 
+        
+    end
 
 
 
