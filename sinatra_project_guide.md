@@ -71,13 +71,13 @@ Create a view for displaying all posts
 
 Create get posts route and view to render form
 Create post route to create new post
- []18. Implement UPDATE functionality
+ [x]18. Implement UPDATE functionality
 
 Add use Rack::MethodOverride in config.ru
 Ask: Why do we add this? ^
 Create get route and view to render form
 Create patch route to update an existing post
- []19. Implement DELETE functionality
+ [x]19. Implement DELETE functionality
 
 Create delete form in relevant view
 Create delete route to delete post
