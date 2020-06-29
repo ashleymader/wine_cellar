@@ -21,19 +21,18 @@ class UserWinesController <ApplicationController
         redirect "/user_wines"
     end
 
-    get '/user_wines/edit' do 
-        # @uw = current_user.user_wines
-        @uw = UserWine.where({user_id: "#{current_user.id}"})
+    get '/user_wines/:id/edit' do 
+        @user_wine = UserWine.find(params[:id])
         erb :"user_wines/edit"
-        # binding.pry
+        
     end
 
-    patch '/user_wines' do 
-        @uw = UserWine.where({user_id: "#{current_user.id}"})
-        @uw.update (notes: params[:notes])
+    patch '/user_wines/:id' do 
+        @user_wine = UserWine.find(params[:id])       
+        @user_wine.update(notes: params[:user_wine][:notes])
         redirect '/user_wines'
     end
 
-
+    
 
 end

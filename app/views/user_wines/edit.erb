@@ -1,12 +1,11 @@
 <h2>Edit Wine in Your Cellar</h2>
 
-<form action="/user_wines" method="POST">
+<form action="/user_wines/<%=@user_wine.id%>" method="POST">
 <input type="hidden" name="_method" value="patch">
-<input name="user_wine" >
-<%@uw.each do |uw|%>
-<p> <%=uw.wine.vintage%>, <%=uw.wine.producer%>, <%=uw.wine.varietal%> 
-<input type="textarea" value="<%=uw.notes%>" id="notes" name="user_wine[notes]">
-<%end%>
+<h2>Edit Your Wine Note</h2>
+<p> <%=@user_wine.wine.vintage%>, <%=@user_wine.wine.producer%>, <%=@user_wine.wine.varietal%> 
+<input type="text" value="<%=@user_wine.notes%>" id="notes" name="user_wine[notes]">
+
 </p>
   <input type="submit" value="Edit Cellar!">
 </form>
