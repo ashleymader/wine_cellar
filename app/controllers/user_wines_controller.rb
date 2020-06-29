@@ -5,25 +5,27 @@ class UserWinesController <ApplicationController
 
     #read 
     get '/user_wines' do
-        @uw = current_user.user_wines
-        erb :"/user_wines/index"
+        authentication_required 
+            @uw = current_user.user_wines
+            erb :"/user_wines/index"
     end
 
     get '/user_wines/new' do 
-        @wines = Wine.all
-        erb :"user_wines/new"
+        authentication_required 
+            @wines = Wine.all
+            erb :"user_wines/new" 
     end
 
     post '/user_wines' do 
         new_wine = UserWine.create(wine_id: params[:wine][:wine_id], user_id: current_user.id, notes: params[:user_wine][:notes])
         @uw = current_user.user_wines
-        
         redirect "/user_wines"
     end
 
     get '/user_wines/:id/edit' do 
-        @user_wine = UserWine.find(params[:id])
-        erb :"user_wines/edit"
+        authentication_required 
+            @user_wine = UserWine.find(params[:id])
+            erb :"user_wines/edit"
         
     end
 

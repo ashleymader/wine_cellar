@@ -35,9 +35,17 @@ class ApplicationController < Sinatra::Base
       #limits calls to db by checking to see if @user has a value first and then will query db. 
     end
 
-    # create an authorization helper for edit/delete
-    def authorized_to_edit?(userwine)
-      userwine.user_id == current_user.id
+    # create an authorization helper for viewing profiles
+    
+    def authorized_to_view(id)
+        id.to_i == current_user.id 
+    end
+
+    def authentication_required
+      if !logged_in?        
+        flash[:error] = "You must be logged in to view website."
+        redirect '/'
+      end
     end
 
   end

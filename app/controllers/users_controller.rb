@@ -27,8 +27,14 @@ class UsersController <ApplicationController
 
     #finding by id, sending to show page
     get '/users/:id' do 
-        @user = User.find_by_id(params[:id])
-        erb :"users/show"
+        authentication_required 
+        if  !authorized_to_view(params[:id]) 
+            flash[:error] = "You may only view your profile"
+            redirect '/'
+        else 
+            @user = User.find_by_id(params[:id])
+            erb :"users/show" 
+        end
     end
 
 
@@ -38,11 +44,19 @@ class UsersController <ApplicationController
     
     post '/users' do 
         #takes in params defined in the form and makes a new user
-        @user = User.create(params)
-        #just like with sign in we need to set a session k/v pair to follow user through the site. 
-        session[:user_id] = @user.id
-        #now we rediect the user to their profile page 
-        redirect "/users/#{@user.id}"
+        # @user = User.new(params)
+        @user = User.new(name: params[:name], email: params[:email], image_url: params[:image_url], password: params[:password])
+        if @user.save
+            #just like with sign in we need to set a session k/v pair to follow user through the site. 
+            session[:user_id] = @user.id
+            #welcome flash
+            flash[:message] = "Welcome to Virtual Wine Cellar, #{@user.name}!"
+            #now we rediect the user to their profile page 
+            redirect "/users/#{@user.id}"
+        else 
+            flash[:error] = "Account creation failed.  #{@user.errors.full_messages.to_sentence}."
+            redirect '/signup'
+        end
     end
 
     get '/logout' do 
