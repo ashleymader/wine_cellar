@@ -30,12 +30,14 @@ class UserWinesController <ApplicationController
     patch '/user_wines/:id' do 
         @user_wine = UserWine.find(params[:id])       
         @user_wine.update(notes: params[:user_wine][:notes])
+        flash[:message] = "Note Updated Successfully"
         redirect '/user_wines'
     end
 
     delete '/user_wines/:id' do 
         @user_wine = UserWine.find(params[:id])
         @user_wine.destroy
+        flash[:message] = "Deleted Wine Successfully"
         redirect '/user_wines'
     end
 
