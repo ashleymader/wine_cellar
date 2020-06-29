@@ -10,7 +10,8 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     #set a secret session for security. Always name it something not obvious
     set :session_secret, "i_feel_so_smart_right_now"
-
+    #registering the flash gem to enable use
+    register Sinatra::Flash
   end
 
   get "/" do
