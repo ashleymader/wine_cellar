@@ -1,13 +1,13 @@
-<h2>Edit Wine in Your Cellar</h2>
+<h2>Edit Wine Note</h2>
 
 <form action="/user_wines/<%=@user_wine.id%>" method="POST">
 <input type="hidden" name="_method" value="patch">
-<h2>Edit Your Wine Note</h2>
+
 <p> <%=@user_wine.wine.vintage%>, <%=@user_wine.wine.producer%>, <%=@user_wine.wine.varietal%> 
 <input type="text" value="<%=@user_wine.notes%>" id="notes" name="user_wine[notes]">
 
 </p>
-  <input type="submit" value="Edit Cellar!">
+  <input type="submit" value="Edit Note!">
 </form>
 
 
