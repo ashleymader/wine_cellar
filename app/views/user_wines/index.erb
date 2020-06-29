@@ -2,8 +2,10 @@
 
 <% @uw.each do |uw| %>
 <h4><%= uw.wine.vintage %> <%= uw.wine.varietal %>,  <%= uw.wine.producer %> </h4> 
-<p><%="Notes: #{uw.notes}" if uw.notes %> <a href='/user_wines/<%=uw.id%>/edit'>Edit Notes</a></p>
-
-
-    <% end %>
+<p><%="Notes: #{uw.notes}" if uw.notes %> <a href='/user_wines/<%=uw.id%>/edit'>Edit Notes</a>
+<form action='/user_wines/<%=uw.id%>' method='POST'>
+<input type='hidden' name='_method' value='delete'>
+<input type='submit' value="Delete Wine"> </p>
+<% end %>
+</form>
 

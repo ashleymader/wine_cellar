@@ -33,6 +33,10 @@ class UserWinesController <ApplicationController
         redirect '/user_wines'
     end
 
-    
+    delete '/user_wines/:id' do 
+        @user_wine = UserWine.find(params[:id])
+        @user_wine.destroy
+        redirect '/user_wines'
+    end
 
 end
