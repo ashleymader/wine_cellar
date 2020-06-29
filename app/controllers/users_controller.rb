@@ -14,11 +14,13 @@ class UsersController <ApplicationController
         if user && user.authenticate(params[:password])
         #creating a session key/value pair for user to login. Setting key in session to user_id and then assigning the value to the users id. 
             session[:user_id] = user.id
+        #flash to show success for logged in 
+            flash[:message] = "Welcome back #{user.name}"
         #redirect to the user/show page
             redirect "/users/#{user.id}"
         else  
         #redirect to login or register 
-            # flash[:error] = "Username or password is incorrect. Please try again."
+            flash[:error] = "Username or password is incorrect."
             redirect "/login"
         end
     end
